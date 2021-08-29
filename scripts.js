@@ -76,19 +76,73 @@ plusButton.addEventListener('click', () => {
     }    
     displayedValue = '';
     inMemorySign = '+';
-    updateDisplay();
-    display.innerHTML = '0';
+});
+
+const minusButton = document.querySelector('#minus');
+minusButton.addEventListener('click', () => {
+    if(displayedValue != ''){                 // if no displayed it means we should use
+        inMemoryValue = displayedValue;       // in memory value from last calculation
+    }    
+    displayedValue = '';
+    inMemorySign = '-';
+});
+
+const multiplyButton = document.querySelector('#multiply');
+multiplyButton.addEventListener('click', () => {
+    if(displayedValue != ''){                 // if no displayed it means we should use
+        inMemoryValue = displayedValue;       // in memory value from last calculation
+    }    
+    displayedValue = '';
+    inMemorySign = '*';
+});
+
+const divideButton = document.querySelector('#divide');
+divideButton.addEventListener('click', () => {
+    if(displayedValue != ''){                 // if no displayed it means we should use
+        inMemoryValue = displayedValue;       // in memory value from last calculation
+    }    
+    displayedValue = '';
+    inMemorySign = '/';
 });
 
 const equalButton = document.querySelector('#equal');
 equalButton.addEventListener('click', () => {
+    let result;
     switch(inMemorySign) {
         case'+':
-        let result = Number(inMemoryValue) + Number(displayedValue);
+        result = Number(inMemoryValue) + Number(displayedValue);
         inMemoryValue = result;
         displayedValue = '';
         display.innerHTML = result;
         console.log(result);
         inMemorySign = '';
+        break;
+
+        case('-'):
+        result = Number(inMemoryValue) - Number(displayedValue);
+        inMemoryValue = result;
+        displayedValue = '';
+        display.innerHTML = result;
+        console.log(result);
+        inMemorySign = '';
+        break;
+
+        case('*'):
+        result = Number(inMemoryValue) * Number(displayedValue);
+        inMemoryValue = result;
+        displayedValue = '';
+        display.innerHTML = result;
+        console.log(result);
+        inMemorySign = '';
+        break;
+
+        case('/'):
+        result = Number(inMemoryValue) / Number(displayedValue);
+        inMemoryValue = result;
+        displayedValue = '';
+        display.innerHTML = result;
+        console.log(result);
+        inMemorySign = '';
+        break;
     }
 });
